@@ -400,7 +400,7 @@ class BreweryRecipeGenerator():
             )
             messagebox.showinfo("Lore Formatting", instructions)
 
-        server_instructions_button = tk.Button(command_frame, text="Lore Instructions", command=show_command_instructions)
+        server_instructions_button = tk.Button(command_frame, text="ServerCommand Instructions", command=show_command_instructions)
         server_instructions_button.pack(pady=5)
 
         # --------------------------
@@ -429,7 +429,7 @@ class BreweryRecipeGenerator():
             )
             messagebox.showinfo("Lore Formatting", instructions)
 
-        player_instructions_button = tk.Button(playercommand_frame, text="Lore Instructions", command=show_playercommand_instructions)
+        player_instructions_button = tk.Button(playercommand_frame, text="PlayerCommand Instructions", command=show_playercommand_instructions)
         player_instructions_button.pack(pady=5)
 
         def finalize_recipe():
