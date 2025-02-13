@@ -455,7 +455,7 @@ class BreweryRecipeGenerator():
             wood = simpledialog.askstring("Wood Type", "Enter barrel's wood type (keep empty if ageable everywhere):")
             if wood:
                 recipe += f"  wood: {wood}\n"
-            age = simpledialog.askstring("Aging Time", "Enter aging time (in years):") if wood else ""
+            age = simpledialog.askstring("Aging Time", "Enter aging time (in years):")
             if age:
                 recipe += f"  age: {age}\n"
             if self.lore_text_widgets:
@@ -466,7 +466,8 @@ class BreweryRecipeGenerator():
                         lore = lore.split('\n')
                         for part in lore:
                             entries.append(f"  - {part}")
-                recipe += f"  lore:\n" + '\n'.join(entries) + '\n'
+                if entries:
+                    recipe += f"  lore:\n" + '\n'.join(entries) + '\n'
             if self.command_text_widgets:
                 entries = []
                 for widget in self.command_text_widgets:
@@ -475,16 +476,18 @@ class BreweryRecipeGenerator():
                         command = command.split('\n')
                         for grr in command:
                             entries.append(f"  - {grr}")
-                recipe += f"  servercommands:\n" + '\n'.join(entries) + '\n'
+                if entries:
+                    recipe += f"  servercommands:\n" + '\n'.join(entries) + '\n'
             if self.playercommand_text_widgets:
                 entries = []
-                for widget in self.command_text_widgets:
+                for widget in self.playercommand_text_widgets:
                     command = widget.get("1.0", "end").strip()
                     if command:
                         command = command.split('\n')
                         for grr in command:
                             entries.append(f"  - {grr}")
-                recipe += f"  playercommands:\n" + '\n'.join(entries) + '\n'
+                if entries:
+                    recipe += f"  playercommands:\n" + '\n'.join(entries) + '\n'
             drinkmessage = simpledialog.askstring("Drink Message", "Shows a message after drinking the brew")
             if drinkmessage:
                 recipe += f"  drinkmessage: {drinkmessage}\n"
